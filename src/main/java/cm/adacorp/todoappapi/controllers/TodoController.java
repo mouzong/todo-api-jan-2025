@@ -1,6 +1,8 @@
 package cm.adacorp.todoappapi.controllers;
 
 import cm.adacorp.todoappapi.model.TodoModel;
+import cm.adacorp.todoappapi.services.TodoService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,7 +12,10 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/todos")
+@RequiredArgsConstructor
 public class TodoController {
+
+    private final TodoService todoService;
 
     @GetMapping
     public String getTodos() {
