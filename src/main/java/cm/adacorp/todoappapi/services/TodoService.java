@@ -13,4 +13,8 @@ public interface TodoService {
     TodoModel getTodoById(UUID id);
 
     TodoModel getTodoByTitle(String title);
+
+    String deleteTodoById(UUID todoId);
+
+    String updateTodo(UUID todoId, TodoModel todoModel);
 }

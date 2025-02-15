@@ -34,4 +34,15 @@ public class TodoController {
     public TodoModel createTodo(@RequestBody TodoModel todoModel) {
         return todoService.create(todoModel);
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteTodoById(@PathVariable("id") UUID todoId){
+        return todoService.deleteTodoById(todoId);
+    }
+
+    @PutMapping("/{id}")
+    public String editTodo(@PathVariable("id") UUID todoId, @RequestBody TodoModel todoModel){
+        return todoService.updateTodo(todoId, todoModel);
+
+    }
 }
