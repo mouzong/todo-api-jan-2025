@@ -3,11 +3,9 @@ package cm.adacorp.todoappapi.controllers;
 import cm.adacorp.todoappapi.model.TodoModel;
 import cm.adacorp.todoappapi.services.TodoService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -18,15 +16,22 @@ public class TodoController {
     private final TodoService todoService;
 
     @GetMapping
-    public String getTodos() {
-        return "OK ça marche";
+    public List<TodoModel> getTodos() {
+        return todoService.getTodos();
+    }
+
+    @GetMapping("/{id}")
+    public TodoModel getTodoById(@PathVariable UUID id) {
+        return todoService.getTodoById(id);
+    }
+
+    @GetMapping("/get/{title}")
+    public TodoModel getTodoByTitle(@PathVariable String title) {
+        return todoService.getTodoByTitle(title);
     }
 
     @PostMapping("/create")
-    public TodoModel createTodo() {
-        return new TodoModel(
-                UUID.randomUUID(),
-                "Faire les courses",
-                "Je veux faire les courses de la semaine");
+    public TodoModel createTodo(@RequestBody TodoModel todoModel) {
+        return todoService.create(todoModel);
     }
 }

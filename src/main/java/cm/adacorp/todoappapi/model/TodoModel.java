@@ -3,6 +3,7 @@ package cm.adacorp.todoappapi.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 import java.util.UUID;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 @Entity
+@Table(name = "todos")
 public class TodoModel {
     @Id
     @GeneratedValue

@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: todo-app-api
+
+server:
+  port: 9393
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /
+
