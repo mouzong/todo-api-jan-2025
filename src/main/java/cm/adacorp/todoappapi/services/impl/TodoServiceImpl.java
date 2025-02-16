@@ -1,6 +1,9 @@
 package cm.adacorp.todoappapi.services.impl;
 
+import cm.adacorp.todoappapi.dto.TodoDto;
+import cm.adacorp.todoappapi.exceptions.TodoAlreadyExistsException;
 import cm.adacorp.todoappapi.exceptions.TodoNotFoundException;
+import cm.adacorp.todoappapi.mapper.TodoMapper;
 import cm.adacorp.todoappapi.model.TodoModel;
 import cm.adacorp.todoappapi.repositories.TodoRepository;
 import cm.adacorp.todoappapi.services.TodoService;
@@ -8,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -23,8 +27,17 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
-    public TodoModel create(TodoModel todoModel) {
-        return todoRepository.save(todoModel);
+    public void create(TodoDto todoDto) {
+        TodoModel todoModel = TodoMapper.mapToTodoModel(new TodoModel(), todoDto);
+
+        Optional<TodoModel> existingTodoModel = todoRepository.findByTitle(
+                todoDto.title());
+
+        if (existingTodoModel.isPresent()){
+            throw new TodoAlreadyExistsException("Todo with title: "+todoDto.title()+" already exist in DataBase, change the title...");
+        }
+
+        todoRepository.save(todoModel);
     }
 
     @Override

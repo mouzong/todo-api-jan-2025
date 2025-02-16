@@ -24,5 +24,4 @@ public class TodoModel {
     private String title;
 
     private String description;
-
 }

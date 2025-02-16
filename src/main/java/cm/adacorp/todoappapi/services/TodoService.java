@@ -1,5 +1,6 @@
 package cm.adacorp.todoappapi.services;
 
+import cm.adacorp.todoappapi.dto.TodoDto;
 import cm.adacorp.todoappapi.model.TodoModel;
 
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.UUID;
 public interface TodoService {
     List<TodoModel> getTodos();
 
-    TodoModel create(TodoModel todoModel);
+    void create(TodoDto todoDto);
 
     TodoModel getTodoById(UUID id);
 
