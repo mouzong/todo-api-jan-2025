@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>cm.adacorp</groupId>
-	<artifactId>todo-app-api</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>todo-app-api</name>
+	<artifactId>todo-api</artifactId>
+	<version>1.0</version>
+	<name>todo-api</name>
 	<description>Api de gestion de taches</description>
 	<url/>
 	<licenses>
@@ -82,7 +82,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>todo-api</finalName>
+		<finalName>todo-api-v${version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
