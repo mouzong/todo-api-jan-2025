@@ -8,12 +8,14 @@ import cm.adacorp.todoappapi.model.TodoModel;
 import cm.adacorp.todoappapi.repositories.TodoRepository;
 import cm.adacorp.todoappapi.services.TodoService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class TodoServiceImpl implements TodoService {
@@ -34,6 +36,7 @@ public class TodoServiceImpl implements TodoService {
                 todoDto.title());
 
         if (existingTodoModel.isPresent()){
+            log.info("Tried to create an existing todo : "+todoDto.title());
             throw new TodoAlreadyExistsException("Todo with title: "+todoDto.title()+" already exist in DataBase, change the title...");
         }
 
