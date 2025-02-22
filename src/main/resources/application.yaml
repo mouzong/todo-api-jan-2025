@@ -1,15 +1,6 @@
 spring:
-  datasource:
-    url: jdbc:h2:mem:tododb
-    driverClassName: org.h2.Driver
-    username: "andreas"
-    password: ""
-  h2:
-    console:
-      enabled: true
-      path: "/db-admin"
   profiles:
-    active: "local"
+    active: "dev"
   application:
     name: "todo-app-api"
 

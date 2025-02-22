@@ -1,9 +1,6 @@
 package cm.adacorp.todoappapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.UUID;
@@ -19,9 +16,15 @@ import java.util.UUID;
 public class TodoModel {
     @Id
     @GeneratedValue
-    private UUID toId;
+    @Column(name = "todo_id")
+    private UUID todoId;
 
+    @Column(name = "title")
     private String title;
 
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "author")
+    private String author;
 }
