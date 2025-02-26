@@ -25,6 +25,6 @@ public class TodoModel {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "author")
-    private String author;
+//    @Column(name = "author")
+//    private String author;
 }
