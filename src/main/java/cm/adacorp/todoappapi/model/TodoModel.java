@@ -10,7 +10,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
-@EqualsAndHashCode
 @Entity
 @Table(name = "todos")
 public class TodoModel {
@@ -25,6 +24,6 @@ public class TodoModel {
     @Column(name = "description")
     private String description;
 
-//    @Column(name = "author")
-//    private String author;
+
+
 }
