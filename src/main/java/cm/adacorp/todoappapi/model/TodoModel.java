@@ -25,5 +25,8 @@ public class TodoModel {
     private String description;
 
 
-
+    public TodoModel(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
 }
