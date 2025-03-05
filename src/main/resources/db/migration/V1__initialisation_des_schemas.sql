@@ -1,6 +1,6 @@
-CREATE TABLE "todos" (
-    "todo_id" UUID NOT NULL,
-    "title" VARCHAR(255) NOT NULL,
-    "description" VARCHAR(255),
-    CONSTRAINT "todos_pkey" PRIMARY KEY ("todo_id")
+CREATE TABLE IF NOT EXISTS todos(
+    todo_id     UUID NOT NULL,
+    title       VARCHAR(255),
+    description VARCHAR(255),
+    CONSTRAINT pk_todos PRIMARY KEY (todo_id)
 );

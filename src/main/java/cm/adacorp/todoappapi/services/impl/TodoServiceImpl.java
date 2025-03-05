@@ -6,6 +6,7 @@ import cm.adacorp.todoappapi.exceptions.TodoNotFoundException;
 import cm.adacorp.todoappapi.mapper.TodoMapper;
 import cm.adacorp.todoappapi.model.TodoModel;
 import cm.adacorp.todoappapi.repositories.TodoRepository;
+import cm.adacorp.todoappapi.repositories.UserRepository;
 import cm.adacorp.todoappapi.services.TodoService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +23,7 @@ public class TodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
 
+    private final UserRepository userRepository;
 
     @Override
     public List<TodoModel> getTodos() {
@@ -45,6 +47,7 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoModel getTodoById(UUID id) {
+
         return todoRepository.findById(id).orElse(null);
     }
 
